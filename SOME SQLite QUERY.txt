@@ -1,0 +1,75 @@
+
+//according to artists name a new table (see the first line)
+SELECT artists.name,albums.name,songs.track,songs.title FROM songs
+  ...> INNER JOIN albums ON songs.album=albums._id
+  ...> INNER JOIN artists ON albums.artist=artists._id
+  ...> ORDER BY artists.name,albums.name,songs.track;
+
+
+//according to the first line
+SELECT songs.track,songs.title,albums.name FROM songs
+...>INNER JOIN albums ON songs.album=albums._id ORDER BY albums.name,songs.track;
+
+
+//according to the first line for album 19
+SELECT artists.name,albums.name,songs.track,songs.title FROM songs
+   ...> INNER JOIN albums ON songs.album=albums._id
+   ...> INNER JOIN artists ON albums.artist=artists._id
+   ...> WHERE albums._id=19
+   ...> ORDER BY artists.name,albums.name,songs.track;
+
+
+//dont remember the song name,only remember that there was something called doctor
+//but at the first or last,dont remember
+SELECT artists.name,albums.name,songs.track,songs.title FROM  songs
+INNER JOIN albums ON songs.album=albums._id
+INNER JOIN artists ON albums.artist=artists._id
+WHERE songs.title LIKE "%doctor%"
+ORDER BY artists.name,albums.name,songs.track;
+
+
+//start of the artist name with jefferson
+SELECT artists.name,albums.name,songs.track,songs.title FROM  songs
+INNER JOIN albums ON songs.album=albums._id
+INNER JOIN artists ON albums.artist=artists._id
+WHERE artists.name LIKE "jefferson%"    //LIKE is not case sensitive,so, case will not matter
+ORDER BY artists.name,albums.name,songs.track;
+
+
+//create view
+CREATE VIEW artists_list AS
+SELECT artists.name,albums.name,songs.track,songs.title FROM songs
+INNER JOIN albums ON songs.album=albums._id
+INNER JOIN artists ON albums.artist=artists._id
+ORDER BY artists.name,albums.name,songs.title;
+
+
+//show the VIEW
+SELECT * FROM artists_list WHERE name LIKE "jefferson%";
+
+
+//show the view with the albums name
+CREATE VIEW albums_list AS
+SELECT name FROM albums
+ORDER BY albums.name;
+
+
+//delete a VIEW
+DROP VIEW albums_list;
+
+
+//delete songs of track<50
+DELETE FROM songs WHERE track<50;
+
+
+//show songs where track not equal to 71
+SELECT * FROM songs WHERE track<> 71;
+
+//how many songs in the database
+SELECT COUNT(*) FROM songs;
+//how many albums in the database
+SELECT COUNT(*) FROM albums;
+
+
+//restoring backup from previously created file backup2
+.restore music-backup2
