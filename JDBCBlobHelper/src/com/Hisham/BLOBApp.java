@@ -112,24 +112,5 @@ public class BLOBApp {
         app.updatePicture(1, "D:\\tinified\\rafi.jpg");
 //        app.readPicture(1, "c:\\temp\\HP_Laptop_BLOB.jpg");
 
-//        Connection connection;
-//        try {
-//            connection = DriverManager.getConnection("jdbc:sqlite:test.db");
-//            Statement statement = connection.createStatement();
-//            ResultSet resultSet = statement.executeQuery("SELECT * FROM Cars");
-//            while (resultSet.next()) {
-//                System.out.println(resultSet.getString("CarReg") + " " + resultSet.getString("CarMake")
-//                        + " " + resultSet.getString("CarModel"));
-//            }
-//            resultSet = statement.executeQuery("SELECT * FROM Manufacturer");
-//            while (resultSet.next()) {
-//                System.out.println(resultSet.getString("Name") + " " + resultSet.getString("Password"));
-//            }
-//            resultSet.close();
-//            statement.close();
-//            connection.close();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
     }
 }
